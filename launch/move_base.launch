@@ -2,7 +2,7 @@
   <master auto="start"/>
 
   <!-- Run the map server -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find segfault_robot_2dnav)/data/map/map.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find segfault_robot_2dnav)/data/Maps/FG_ES_RS_map/map.yaml"/>
 
   <!--- Run AMCL -->
   <!-- <include file="$(find amcl)/examples/amcl_omni.launch" /> -->
