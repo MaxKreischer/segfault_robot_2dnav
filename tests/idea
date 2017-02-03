@@ -1,0 +1,5 @@
+tf tf_echo /map /base_link
+
+or
+
+tf tf_echo /map /odom

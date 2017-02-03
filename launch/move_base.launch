@@ -7,8 +7,10 @@
 <!--- Run AMCL -->
 <!-- Config taken from diff_vehicle launch file -->
 <node pkg="amcl" type="amcl" name="amcl" output="screen">
-  <!-- remap laserscan topic -->
-	<remap from="/scan" to="/base_scan" />
+  <!-- set initial pose of robot in map -->
+  <param name="initial_pose_x" value="2.0"/>
+  <param name="initial_pose_y" value="0.0"/>
+  <param name="initial_pose_a" value="0.0"/>
   <!-- Publish scans from best pose at a max of 10 Hz -->
   <param name="odom_model_type" value="diff"/>
   <param name="odom_alpha5" value="0.1"/>
