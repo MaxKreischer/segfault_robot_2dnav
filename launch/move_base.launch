@@ -4,7 +4,9 @@
   <!-- Run the map server -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(find segfault_robot_2dnav)/data/Maps/FG_ES_RS_map/map.yaml"/>
  <node pkg="tf" type="static_transform_publisher" name ="laser_broadcaster" args="0 0 0.16 0 0 0 1 base_footprint base_laser 10" />
+
 <!-- <node pkg="tf" type="static_transform_publisher" name ="footprint_broadcaster" args="0 0 0 0 0 0 1 map odom 10" /> -->
+
  <node pkg="amcl" type="amcl" name="amcl" output="screen"> 
   <!-- set initial pose of robot in map -->
 <param name="base_frame_id" value="base_footprint" />  
@@ -13,6 +15,7 @@
   <param name="initial_pose_x" value="2.0"/>
   <param name="initial_pose_y" value="0.0"/>
   <param name="initial_pose_a" value="0.0"/>
+
   <!-- Publish scans from best pose at a max of 10 Hz -->
   <param name="odom_model_type" value="diff"/>
   <param name="odom_alpha5" value="0.1"/>
@@ -36,6 +39,7 @@
   <param name="laser_lambda_short" value="0.1"/>
   <param name="laser_lambda_short" value="0.1"/>
   <param name="laser_model_type" value="likelihood_field"/>
+
   <!-- <param name="laser_model_type" value="beam"/> -->
   <param name="laser_likelihood_max_dist" value="2.0"/>
   <param name="update_min_d" value="0.2"/>
@@ -53,5 +57,7 @@
     <rosparam file="$(find segfault_robot_2dnav)/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find segfault_robot_2dnav)/global_costmap_params.yaml" command="load" />
     <rosparam file="$(find segfault_robot_2dnav)/base_local_planner_params.yaml" command="load" />
-  </node>
+<param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+<param name="controller_frequency" value="20.0" /> 
+ </node>
 </launch>
