@@ -58,6 +58,6 @@
     <rosparam file="$(find segfault_robot_2dnav)/global_costmap_params.yaml" command="load" />
     <rosparam file="$(find segfault_robot_2dnav)/base_local_planner_params.yaml" command="load" />
 <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
-<param name="controller_frequency" value="20.0" /> 
+<param name="controller_frequency" value="10.0" /> #value was 20, edited to 10 for less warnings 
  </node>
 </launch>
