@@ -23,7 +23,8 @@ TebLocalPlannerROS:
  max_vel_theta: 0.3
  acc_lim_x: 0.5
  acc_lim_theta: 0.5
- min_turning_radius: 0.0
+ min_turning_radius: 0.61 #def.:0.0 our car has 0.61m
+ cmd_angle_instead_rotvel: True #stage simulator takes the angle instead of the rotvel as input (twist message)
  footprint_model: # types: "point", "circular", "two_circles", "line", "polygon"
    type: "polygon" #polygon,max compexity
    # radius: 0.2 # for type "circular"
