@@ -3,7 +3,8 @@
 
   <!-- Run the map server -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(find segfault_robot_2dnav)/data/Maps/FG_ES_RS_map/map.yaml"/>
- <node pkg="tf" type="static_transform_publisher" name ="laser_broadcaster" args="0 0 0.16 0 0 0 1 base_footprint base_laser 10" />
+<!-- use this node only in real scenario not in simulation -->
+ <!-- node pkg="tf" type="static_transform_publisher" name ="laser_broadcaster" args="0 0 0.16 0 0 0 1 base_footprint base_laser 10" / -->
 
 <!-- <node pkg="tf" type="static_transform_publisher" name ="footprint_broadcaster" args="0 0 0 0 0 0 1 map odom 10" /> -->
 
@@ -66,7 +67,7 @@
     <param name="planner_patience" value="5.0" />
 
     <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
-    <param name="controller_frequency" value="5.0" /> #value was 20, edited to 10 for less warnings 
+    <param name="controller_frequency" value="1.0" /> #value was 20, edited to 1 for less warnings 
     <param name="controller_patience" value="15.0" />
 
  </node>
