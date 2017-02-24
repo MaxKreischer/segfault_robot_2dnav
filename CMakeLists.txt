@@ -8,7 +8,6 @@ find_package(catkin REQUIRED COMPONENTS
   depthimage_to_laserscan
   move_base
   pses_basis
-  robot_setup_tf
 )
 
 ## System dependencies are found with CMake's conventions
