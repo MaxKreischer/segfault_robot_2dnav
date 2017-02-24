@@ -18,9 +18,9 @@ TebLocalPlannerROS:
 #play with this param        
  max_vel_x: 1.4
 #play with this param
- max_vel_x_backwards: 0.2
+ max_vel_x_backwards: 0.4
 #play with this param
- max_vel_theta: 0.3
+ max_vel_theta: 0.42
  acc_lim_x: 0.5
  acc_lim_theta: 0.5
  min_turning_radius: 0.61 #def.:0.0 our car has 0.61m
