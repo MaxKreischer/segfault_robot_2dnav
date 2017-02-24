@@ -10,16 +10,17 @@ TebLocalPlannerROS:
  dt_ref: 0.3 #distance between planned poses? not clear in wiki
  dt_hysteresis: 0.1
  global_plan_overwrite_orientation: True
- max_global_plan_lookahead_dist: 3.0
- feasibility_check_no_poses: 5
+ max_global_plan_lookahead_dist: 4.5
+ feasibility_check_no_poses: 8
     
  # Robot
  
 #play with this param        
  max_vel_x: 1.4
 #play with this param
- max_vel_x_backwards: 0.4
+ max_vel_x_backwards: 1.0
 #play with this param
+ wheelbase: 0.26
  max_vel_theta: 0.42
  acc_lim_x: 0.5
  acc_lim_theta: 0.5
@@ -38,14 +39,14 @@ TebLocalPlannerROS:
    #[[0.175, 0.0985],[-0.175, 0.0985],[-0.175, -0.0985],[0.175, -0.0985]] by max,replaced from simu
  # GoalTolerance
     
- xy_goal_tolerance: 0.2
- yaw_goal_tolerance: 0.1
- free_goal_vel: False
+ xy_goal_tolerance: 0.3
+ yaw_goal_tolerance: 0.5
+ # free_goal_vel: False
     
  # Obstacles
 
 #play with this param
- min_obstacle_dist: 0.2 #default was 0.4, does not "rech goal"anymore.if set to 0.2
+ min_obstacle_dist: 0.4 #default was 0.4, does not "rech goal"anymore.if set to 0.2
  include_costmap_obstacles: True
  costmap_obstacles_behind_robot_dist: 1.0
  obstacle_poses_affected: 30
@@ -67,23 +68,23 @@ TebLocalPlannerROS:
  weight_kinematics_nh: 1000
  weight_kinematics_forward_drive: 1
  weight_kinematics_turning_radius: 1
- weight_optimaltime: 1
+ weight_optimaltime: 10
  weight_obstacle: 50 #def: 50;wiki:if you choose too high values, it becomes ill-conditioned,poor conv.behavior
- weight_dynamic_obstacle: 10 # not in use yet
- alternative_time_cost: False # not in use yet
+ #weight_dynamic_obstacle: 10 # not in use yet
+ #alternative_time_cost: False # not in use yet
 
  # Homotopy Class Planner
 
 # NOTE: according to wiki this prevents robot from getting
 # stuck in local optima
- enable_homotopy_class_planning: True
+ enable_homotopy_class_planning: false
 # NOTE: maybe enable multithreading(?) if computations 
 # too slow
  enable_multithreading: True #default is False
  simple_exploration: False
- max_number_classes: 4
- roadmap_graph_no_samples: 15
- roadmap_graph_area_width: 5
+# max_number_classes: 4
+# roadmap_graph_no_samples: 15
+# roadmap_graph_area_width: 5
  h_signature_prescaler: 0.5
  h_signature_threshold: 0.1
  obstacle_keypoint_offset: 0.1
