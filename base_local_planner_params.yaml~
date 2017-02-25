@@ -10,9 +10,9 @@ TebLocalPlannerROS:
  #dt_ref: 0.3 #distance between planned poses? not clear in wiki
  #dt_hysteresis: 0.1
  global_plan_overwrite_orientation: False  #nightOWL True
- max_global_plan_lookahead_dist: 3.0
+ max_global_plan_lookahead_dist: 4.5
  #doubled this from 8 -> 16
- feasibility_check_no_poses: 10
+ feasibility_check_no_poses: 16
     
  # Robot
  
@@ -22,8 +22,8 @@ TebLocalPlannerROS:
  max_vel_x_backwards: 2.0
  #wheelbase should be fix
  wheelbase: 0.26
- #maybe change this to a lesser angle (25deg -> 0.42rad)/ changed to 0.3
- max_vel_theta: 0.3
+ #maybe change this to a lesser angle (25deg -> 0.42rad)
+ max_vel_theta: 0.42
  acc_lim_x: 0.5
  acc_lim_theta: 0.5
  #def.:0.0 our car has 0.61m
@@ -42,11 +42,9 @@ TebLocalPlannerROS:
    vertices: [[-0.325,-0.10], [0.075, -0.10], [0.075, 0.10], [-0.325, 0.10]]
    #[[0.175, 0.0985],[-0.175, 0.0985],[-0.175, -0.0985],[0.175, -0.0985]] by max,replaced from simu
  # GoalTolerance
-
- #nightOWL TRY 0.2 LATER   
- xy_goal_tolerance: 0.3
- #nightOWL TRY 0.4 LATER
- yaw_goal_tolerance: 0.5
+    
+ xy_goal_tolerance: 0.3 #nightOWL TRY 0.2 LATER
+ yaw_goal_tolerance: 0.5 #nightOWL TRY 0.4 LATER
  free_goal_vel: False #nightOWL completely commented
     
  # Obstacles
@@ -62,10 +60,10 @@ TebLocalPlannerROS:
 
  # Optimization
     
-# no_inner_iterations: 5
- #no_outer_iterations: 4
- #optimization_activate: True
- #optimization_verbose: False
+ no_inner_iterations: 5
+ no_outer_iterations: 4
+ optimization_activate: True
+ optimization_verbose: False
  penalty_epsilon: 0.1 #def.: 0.1;wiki:all penalty terms,be careful cause massive influence
  weight_max_vel_x: 2
  weight_max_vel_theta: 1
@@ -88,8 +86,7 @@ TebLocalPlannerROS:
 # too slow
  enable_multithreading: True #default is False
  simple_exploration: False
-#changed from 4 -> 10
- max_number_classes: 10 #nightOWL completely commented
+ max_number_classes: 4 #nightOWL completely commented
  roadmap_graph_no_samples: 15 #nightOWL completely commented
  roadmap_graph_area_width: 5 #nightOWL completely commented
  h_signature_prescaler: 0.5

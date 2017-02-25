@@ -3,7 +3,8 @@ raytrace_range: 3.0
 footprint: [[-0.325,-0.10], [0.075, -0.10], [0.075, 0.10], [-0.325, 0.10]]
         #[[0.175, 0.0985], [-0.175, 0.0985], [-0.175, -0.0985], [0.175, -0.0985]]from max,replaced from simu
 #robot_radius: ir_of_robot
-inflation_radius: 0.5 #nightOWL 0.7
+#changed from 0.6 -> 1.0
+inflation_radius: 1.0 
 
 #omitted point_cloud_sensor
 observation_sources: laser_scan_sensor
