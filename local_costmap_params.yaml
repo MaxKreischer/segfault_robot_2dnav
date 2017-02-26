@@ -5,6 +5,6 @@ local_costmap:
   publish_frequency: 5.0 #nightOWL 2.0
   static_map: false #nightOWL true
   rolling_window: true
-  width: 10.0 #nightOWL 4.0
-  height: 10.0 #nightOWL 4.0
+  width: 4.0 #nightOWL 4.0
+  height: 4.0 #nightOWL 4.0
   resolution: 0.05
