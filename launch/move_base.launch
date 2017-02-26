@@ -6,8 +6,8 @@
 	<param name="output_frame_id" value="base_laser"/>
     	<param name="range_min" value="0.1" />
     	<param name="range_max" value="9.0" />
-    	<param name="scan_time" value="0.1" />
-    	<param name="scan_height" value="20" />  
+    	<param name="scan_time" value="0.01" />
+    	<param name="scan_height" value="40" />  
 	</node>
 
 

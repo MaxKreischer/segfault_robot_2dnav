@@ -7,8 +7,8 @@
 	<param name="output_frame_id" value="base_laser"/>
     	<param name="range_min" value="0.1" />
     	<param name="range_max" value="9.0" />
-    	<param name="scan_time" value="0.1" />
-    	<param name="scan_height" value="20" />  
+    	<param name="scan_time" value="0.05" />
+    	<param name="scan_height" value="50" />  
 	</node>
 
 
@@ -25,9 +25,6 @@
 		  <param name="odom_frame_id" value="odom"/>
 		  <param name="use_map_topic" value="true"/>  
 		  <param name="first_map_only" value="true" />
-		  <param name="initial_pose_x" value="2.5"/>
-		   <param name="initial_pose_y" value="0.0"/> 
-		   <param name="initial_pose_a" value="0.0"/>
 	</node> 
 
 	 <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">

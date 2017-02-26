@@ -12,18 +12,18 @@ TebLocalPlannerROS:
  global_plan_overwrite_orientation: False  #nightOWL True
  max_global_plan_lookahead_dist: 4.5
  #doubled this from 8 -> 16
- feasibility_check_no_poses: 16
+ feasibility_check_no_poses: 8
     
  # Robot
  
  #changed from 1.6->1.4        
- max_vel_x: 1.4 
+ max_vel_x: 1.0
  #not changed
  max_vel_x_backwards: 2.0
  #wheelbase should be fix
  wheelbase: 0.26
- #maybe change this to a lesser angle (25deg -> 0.42rad)
- max_vel_theta: 0.42
+ #maybe change this to a lesser angle (25deg -> 0.42rad)/ changed to 0.3
+ max_vel_theta: 0.3
  acc_lim_x: 0.5
  acc_lim_theta: 0.5
  #def.:0.0 our car has 0.61m
@@ -32,7 +32,7 @@ TebLocalPlannerROS:
  cmd_angle_instead_rotvel: True
  footprint_model: # types: "point", "circular", "two_circles", "line", "polygon"
    type: "polygon" #polygon,max compexity
-   # radius: 0.2 # for type "circular"
+   #radius: 0.2 # for type "circular"
    # line_start: [-0.3, 0.0] # for type "line"
    # line_end: [0.3, 0.0] # for type "line"
    # front_offset: 0.2 # for type "two_circles"
@@ -42,35 +42,41 @@ TebLocalPlannerROS:
    vertices: [[-0.325,-0.10], [0.075, -0.10], [0.075, 0.10], [-0.325, 0.10]]
    #[[0.175, 0.0985],[-0.175, 0.0985],[-0.175, -0.0985],[0.175, -0.0985]] by max,replaced from simu
  # GoalTolerance
-    
- xy_goal_tolerance: 0.3 #nightOWL TRY 0.2 LATER
- yaw_goal_tolerance: 0.5 #nightOWL TRY 0.4 LATER
+
+ #nightOWL TRY 0.2 LATER   
+ xy_goal_tolerance: 0.3
+ #nightOWL TRY 0.4 LATER
+ yaw_goal_tolerance: 0.5
  free_goal_vel: False #nightOWL completely commented
     
  # Obstacles
 
 #play with this param
- min_obstacle_dist: 0.45 #default was 0.4, does not "rech goal"anymore.if set to 0.2 #nightOWL 0.4
+#default was 0.4, does not "rech goal"anymore.if set to 0.2 #nightOWL 0.4
+ min_obstacle_dist: 0.2 
+ #inflation dist needs to be greater than min_obstacle_dist to take effect
+ inflation_dist: 0.4
  include_costmap_obstacles: True
  costmap_obstacles_behind_robot_dist: 1.0
- obstacle_poses_affected: 30
+ obstacle_poses_affected: 20
  costmap_converter_plugin: "costmap_converter::CostmapToLinesDBSRANSAC"
  costmap_converter_spin_thread: True
  costmap_converter_rate: 5
 
  # Optimization
     
- no_inner_iterations: 5
- no_outer_iterations: 4
- optimization_activate: True
- optimization_verbose: False
+# no_inner_iterations: 5
+ #no_outer_iterations: 4
+ #optimization_activate: True
+ #optimization_verbose: False
  penalty_epsilon: 0.1 #def.: 0.1;wiki:all penalty terms,be careful cause massive influence
  weight_max_vel_x: 2
  weight_max_vel_theta: 1
  weight_acc_lim_x: 1
  weight_acc_lim_theta: 1
  weight_kinematics_nh: 1000
- weight_kinematics_forward_drive: 1000 #nightOWL 1
+ #nightOWL 1000
+ weight_kinematics_forward_drive: 50
  weight_kinematics_turning_radius: 100 #nightOWL 1
  weight_optimaltime: 1 #nightOWL 10
  weight_obstacle: 50 #def: 50;wiki:if you choose too high values, it becomes ill-conditioned,poor conv.behavior
@@ -86,7 +92,8 @@ TebLocalPlannerROS:
 # too slow
  enable_multithreading: True #default is False
  simple_exploration: False
- max_number_classes: 4 #nightOWL completely commented
+#changed from 4 -> 10
+ max_number_classes: 10 #nightOWL completely commented
  roadmap_graph_no_samples: 15 #nightOWL completely commented
  roadmap_graph_area_width: 5 #nightOWL completely commented
  h_signature_prescaler: 0.5
