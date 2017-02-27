@@ -1,10 +1,10 @@
 local_costmap:
   global_frame: /map
   robot_base_frame: base_footprint
-  update_frequency: 5.0
-  publish_frequency: 2.0
+  update_frequency: 8.0
+  publish_frequency: 4.0
   static_map: true
   rolling_window: true
-  width: 5.0
+  width: 2.3
   height: 5.0
   resolution: 0.25
