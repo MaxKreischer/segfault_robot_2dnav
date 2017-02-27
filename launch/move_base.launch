@@ -5,6 +5,10 @@
         <remap from="image" to="kinect2/sd/image_depth"/>
         <remap from="camera_info" to="kinect2/sd/camera_info"/>
         <param name="output_frame_id" value="base_laser"/>
+        <param name="scan_height" value="20"/>
+        <param name="scan_time" value="0.03"/>
+        <param name="range_min" value="0.05"/>
+        <param name="range_max" value="10.0"/>
     </node>
 
   <!-- Run the map server -->
@@ -36,7 +40,7 @@
 
     <!--<param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />-->
     <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
-    <param name="controller_frequency" value="5.0" /> #value was 20, edited to 1 for less warnings
+    <param name="controller_frequency" value="10.0" /> #value was 20, edited to 1 for less warnings
     <param name="controller_patience" value="15.0" />
 
  </node>

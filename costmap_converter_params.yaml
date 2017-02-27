@@ -1,6 +1,6 @@
 TebLocalPlannerROS:
 
-  ## Costmap converter plugin   
+  ## Costmap converter plugin
   #costmap_converter_plugin: "costmap_converter::CostmapToPolygonsDBSMCCH"
   costmap_converter_plugin: "costmap_converter::CostmapToLinesDBSRANSAC"
   #costmap_converter_plugin: "costmap_converter::CostmapToLinesDBSMCCH"
@@ -8,7 +8,7 @@ TebLocalPlannerROS:
   #costmap_converter_plugin: "" # deactivate plugin
   costmap_converter_spin_thread: True
   costmap_converter_rate: 5
- 
+
  
   ## Configure plugins (namespace move_base/TebLocalPlannerROS/PLUGINNAME)
   ## The parameters must be added for each plugin separately
