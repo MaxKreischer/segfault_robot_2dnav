@@ -5,11 +5,16 @@
         <remap from="image" to="kinect2/sd/image_depth"/>
         <remap from="camera_info" to="kinect2/sd/camera_info"/>
         <param name="output_frame_id" value="base_laser"/>
-        <param name="scan_height" value="20"/>
-        <param name="scan_time" value="0.03"/>
-        <param name="range_min" value="0.05"/>
-        <param name="range_max" value="10.0"/>
+        <param name="scan_height" value="1"/>
+        <param name="scan_time" value="0.05"/>
+        <param name="range_min" value="0.1"/>
+        <param name="range_max" value="7.0"/>
     </node>
+
+<node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="laser_filter">
+      <!--<remap from="scan" to="base_scan" />-->
+      <rosparam command="load" file="$(find segfault_robot_2dnav)/laser_filter.yaml"/>
+</node>
 
   <!-- Run the map server -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(find segfault_robot_2dnav)/data/Maps/FG_ES_RS_map/map.yaml"/>
@@ -19,8 +24,9 @@
  <!--node pkg="tf" type="static_transform_publisher" name ="footprint_broadcaster" args="0 0 0 0 0 0 1 map odom 10" /-->
 
 <node pkg="amcl" type="amcl" name="amcl" output="screen">
-<param name="base_frame_id" value="base_footprint" />
-<param name="use_map_topic" value="true"/>
+  <remap from="scan" to="scan_filtered"/>
+  <param name="base_frame_id" value="base_footprint" />
+  <param name="use_map_topic" value="true"/>
   <param name="first_map_only" value="true" />
 </node>
 
@@ -44,4 +50,5 @@
     <param name="controller_patience" value="15.0" />
 
  </node>
+ 
 </launch>
