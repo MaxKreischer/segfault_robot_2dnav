@@ -4,12 +4,9 @@ global_costmap:
   update_frequency: 1.0
   publish_frequency: 0.5
   static_map: true
-  lethal_cost: 130
-  inflation_radius: 0.1
-  neutral_cost: 25
-  inflation_radius: 4.0
-  cost_scaling_factor: 8.0
+  rolling_window: false
 
   plugins:
     - {name: static_layer,            type: "costmap_2d::StaticLayer"}
     - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}
+    - {name: obstacle_layer,          type: "costmap_2d::VoxelLayer"}
