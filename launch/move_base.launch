@@ -24,6 +24,7 @@
  <!--node pkg="tf" type="static_transform_publisher" name ="footprint_broadcaster" args="0 0 0 0 0 0 1 map odom 10" /-->
 
 <node pkg="amcl" type="amcl" name="amcl" output="screen">
+  <!-- <remap from="scan" to="scan_filtered"/> by Seb comment-->
   <remap from="scan" to="scan_filtered"/>
   <param name="base_frame_id" value="base_footprint" />
   <param name="use_map_topic" value="true"/>
@@ -46,7 +47,7 @@
 
     <!--<param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />-->
     <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
-    <param name="controller_frequency" value="5.0" /> #value was 20, edited to 1 for less warnings
+    <param name="controller_frequency" value="5.0" /> <!-- #value was 20, edited to 1 for less warnings -->
     <param name="controller_patience" value="15.0" />
 
  </node>
